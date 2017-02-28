@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb 28 14:57:54 2017
+D'abord on mappe des values de manière à obtenir après shuffle and sort des liste de maximum 2 values :
+max une de A d'indice *j et max une de B j*. Après on combine pour emit des produits de ces valeurs, 
+les A(i,k)*B(k,j), et le reducer somme ces éléments selon kpour obtenir AB(i,j)
 
 @author: damien
 """
-
+#lit le file A, 
 def mapperA(file):
     for line in file:
         i,j,v=list(line)
