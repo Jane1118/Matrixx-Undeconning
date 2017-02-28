@@ -37,7 +37,7 @@ def combiner(s,l):
             v2=b[2]
             j=b[0]
             c=v1*v2
-            emit(str(i)+str(j),c)
+            print '%s\t%s' % (str(i)+str(j),c)
 
 def reducer(s,l):
     i,j=list(s)
