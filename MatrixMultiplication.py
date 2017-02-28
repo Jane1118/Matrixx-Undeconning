@@ -12,16 +12,14 @@ def mapperA(file):
     for line in file:
         i,j,v=list(line)
         v=float(v)
-        for k in range(n):
-            emit(str(k)+j,[i,'A',v])
+        emit(j,[i,'A',v])
 
 
 def mapperB(file):
     for line in file:
         i,j,v=list(line)
         v=float(v)
-        for k in range(n):
-            emit(str(k)+i,[j,'B',v])
+        emit(i,[j,'B',v])
 
 #s="uv" ou u identifie afin d'obtenir des couples, et
 #v est celui retrouve dans A(i,v)*B(v,j)
