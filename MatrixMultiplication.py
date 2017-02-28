@@ -41,7 +41,7 @@ def combiner(s,l):
 
 def reducer(s,l):
     i,j=list(s)
-    v=0
+    v=0.0
     for x in l:
         v+=x
     print '%s\t%s' % (i+' '+j+' '+str(v))
