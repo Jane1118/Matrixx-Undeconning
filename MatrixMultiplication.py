@@ -12,14 +12,14 @@ def mapperA(file):
     for line in file:
         i,j,v=line.split(' ')
         v=float(v)
-        emit(j,[i,'A',v])
+        print '%s\t%s' % (j,[i,'A',v])
 
 
 def mapperB(file):
     for line in file:
         i,j,v=line.split(' ')
         v=float(v)
-        emit(i,[j,'B',v])
+        print '%s\t%s' % (i,[j,'B',v])
 
 #s="uv" ou u identifie afin d'obtenir des couples, et
 #v est celui retrouve dans A(i,v)*B(v,j)
@@ -42,7 +42,7 @@ def combiner(s,l):
 def reducer(s,l):
     i,j=list(s)
     v=np.sum(l)
-    write(i+' '+j+' '+str(v))
+    print '%s\t%s' % (i+' '+j+' '+str(v))
 
 
 
