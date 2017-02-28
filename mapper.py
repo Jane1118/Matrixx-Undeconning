@@ -17,7 +17,7 @@ for line in sys.stdin:
     if namefile=='A.txt':
         print '%s\t%s' % (j,[i,'A',v])
     elif namefile=='B.txt':
-        print '%s\t%s' % (i,[j,'A',v])
+        print '%s\t%s' % (i,[j,'B',v])
 
 
 
