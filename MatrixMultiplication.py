@@ -10,14 +10,14 @@ les A(i,k)*B(k,j), et le reducer somme ces éléments selon kpour obtenir AB(i,j
 #lit le file A, 
 def mapperA(file):
     for line in file:
-        i,j,v=list(line)
+        i,j,v=line.split(' ')
         v=float(v)
         emit(j,[i,'A',v])
 
 
 def mapperB(file):
     for line in file:
-        i,j,v=list(line)
+        i,j,v=line.split(' ')
         v=float(v)
         emit(i,[j,'B',v])
 
@@ -42,7 +42,7 @@ def combiner(s,l):
 def reducer(s,l):
     i,j=list(s)
     v=np.sum(l)
-    write(i+','+j+','+str(v))
+    write(i+' '+j+' '+str(v))
 
 
 
