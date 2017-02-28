@@ -7,24 +7,17 @@ for line in sys.stdin:
     s = pair[0]
     l = pair[1]
     #code du reducer
-    
-    if current_cid == cid:
-        lvalues.append(rest)
-
-    else:
-        if current_cid:
-            # write result to STDOUT
-            if 'Customer.txt' in lvalues :
-                for x in lvalues :
-                    if x != 'Customer.txt' :
-                        print '%s\t%s' % (current_cid, x.split(",")[1])
-
-        current_cid = cid
-        lvalues=[rest]
-
-if current_cid == cid:
-    if 'Customer.txt' in lvalues :
-        for x in lvalues :
-            if x != 'Customer.csv' :
-                    print '%s\t%s' % (cid, x.split(",")[1])
-
+    As,Bs=[]
+    for x in l:
+        if x[1]=='A':
+            As.append(x)
+        else:
+            Bs.append(x)
+    for a in A:
+        v1=a[2]
+        i=a[0]
+        for b in B:
+            v2=b[2]
+            j=b[0]
+            c=v1*v2
+    print '%s\t%s' % (str(i)+str(j),c)
