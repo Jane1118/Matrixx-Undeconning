@@ -26,7 +26,7 @@ for line in sys.stdin:
             v2=b[2]
             j=b[0]
             c=v1*v2
-            print '%s\t%s' % (str(i)+str(j),c)
+            print '%s\t%s' % (str(i)+' '+str(j),c)
     else:
         Bs.append(x)
         v1=x[2]
@@ -35,4 +35,4 @@ for line in sys.stdin:
             v2=a[2]
             i=a[0]
             c=v1*v2
-            print '%s\t%s' % (str(i)+str(j),c)
+            print '%s\t%s' % (str(i)+' '+str(j),c)
