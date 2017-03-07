@@ -13,11 +13,13 @@ for line in sys.stdin:
         c+=x
     else:
         if current_cid:
-            print '%s\t%s' % (current_cid,str(c))
+            print '%s %s' % (current_cid,str(c))
             c=0
-            current_cid = cid
+        current_cid = cid
+        c+=x
+
     
 if current_cid == cid:
     if current_cid:
-        print '%s\t%s' % (current_cid,str(c))
+        print '%s %s' % (current_cid,str(c))
 
