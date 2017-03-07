@@ -16,7 +16,6 @@ for line in sys.stdin:
     if current_cid != cid:
         As,Bs=[],[]
     current_cid = cid
-
     
     if x[1]=='A':
         As.append(x)
