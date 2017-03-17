@@ -18,7 +18,7 @@ def mapperB(line):
     i,j,v=line.split(' ')
     v=float(v)
     i,j=map(int,[i,j])
-    return j,[i,'B',v]
+    return i,[j,'B',v]
 
 
 outputA = A.map(lambda line: mapperA(line))
