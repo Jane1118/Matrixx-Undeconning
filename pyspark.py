@@ -27,37 +27,35 @@ outputB = B.map(lambda line: mapperB(line))
 
 rdd = sc.union([outputA,outputB])
 
-output=rdd.reduceByKey(lambda x,y : (x,y))
 
+flatten = lambda l: [item for sublist in l for item in sublist]
 
+output=rdd.reduceByKey(lambda x,y : flatten((x,y)))
+
+import numpy as np
 def mapper(g):
     k,l=g
     As,Bs=[],[]
     d=[]
     toret=[]
-    for a in l:
-        if len(a)==3:
-            d.append(a)
-        else:
-            for b in a:
-                d.append(b)
+    d=map(list,np.array(l).reshape((len(l)/3,3)))
     for x in d:
         if x[1]=='A':
             As.append(x)
-            v1=x[2]
-            i=x[0]        
+            v1=float(x[2])
+            i=int(x[0])
             for b in Bs:
-                v2=b[2]
-                j=b[0]
+                v2=float(b[2])
+                j=int(b[0])
                 c=v1*v2
                 toret.append((str(i)+' '+str(j),c))
         else:
             Bs.append(x)
-            v1=x[2]
-            j=x[0]        
+            v1=float(x[2])
+            j=int(x[0])        
             for a in As:
-                v2=a[2]
-                i=a[0]
+                v2=float(a[2])
+                i=int(a[0])
                 c=v1*v2
                 toret.append((str(i)+' '+str(j),c))
     return toret
@@ -65,12 +63,10 @@ def mapper(g):
 
 mapped=output.flatMap(lambda x : mapper(x))
 
-
 last=mapped.reduceByKey(lambda x,y:x+y)
 
 
 last.collect()
-
 
 
 
