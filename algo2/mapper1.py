@@ -19,6 +19,6 @@ for line in sys.stdin:
     l = a.split("/")
     namefile = l[len(l)- 1]
     if namefile=='A.txt':
-        print '%s\t%s' % (['A',i],[j,v])
+        print '%s\t%s' % ('A'+str(i),[j,v])
     elif namefile=='B.txt':
-        print '%s\t%s' % (['B',j],[i,v])
+        print '%s\t%s' % ('B'+str(j),[i,v])
